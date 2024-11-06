@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct View001: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+	var body: some View {
+		VStack(spacing: 0) {
+			GeometryReader { geometry in
+				VStack {
+					Rectangle()
+						.fill(Color.blue.opacity(0.8))
+						.frame(height: geometry.size.height * 0.20)
+				}
+				
+				VStack {
+					Rectangle()
+						.fill(Color.blue.opacity(0.6))
+				}
+			}
+		}
+		.ignoresSafeArea()
+	}
 }
 
 #Preview {
-    View001()
+	View001()
 }
